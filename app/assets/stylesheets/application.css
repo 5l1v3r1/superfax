@@ -13,7 +13,7 @@
  */
 
 body {
-  background-color: #4496bb;
+  background-color: #4496bb !important;
 }
 
 .logo {
