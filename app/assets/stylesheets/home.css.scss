@@ -110,9 +110,36 @@
   height: 0;
   width: 0;
   top: -20px;
-  left: 1em;
+  left: 10%;
 }
 
 .bubble_ddd {
-  left: 80px;
+  left: 12%;
+}
+
+.bubble_country_code p {
+  display: block;
+  font-size: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bubble_country_code p:hover {
+}
+
+.bubble_country_code img {
+  height: 30px;
+  width: 30px;
+}
+
+.bubble_country_code label {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.bubble_country_code label:hover {
+  text-decoration: underline;
+}
+
+.flag {
 }

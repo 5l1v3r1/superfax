@@ -10,14 +10,21 @@
         <p>
           Número do Destinatário
         </p>
-        <div class="bubble bubble_country_code">This is a tip</div>
+        <div class="bubble bubble_country_code">
+          <p><%= image_tag "brazil.png", :class => "flag" %><label>Brasil (+55)</label></p>
+          <p><%= image_tag "united_states.png", :class => "flag" %><label>Estados Unidos (+1)</label></p>
+          <p><%= image_tag "argentina.png", :class => "flag" %><label>Argentina (+54)</label></p>
+          <p><%= image_tag "united_kingdom.png", :class => "flag" %><label>Reino Unido (+44)</label></p>
+          <p><%= image_tag "canada.png", :class => "flag" %><label>Canada (+1)</label></p>
+          <p><%= image_tag "germany.png", :class => "flag" %><label>Alemanha (+49)</label></p>
+        </div>
 
-        <input type="text" id="country_code" class="form-control input-lg" value="55" />
-        <input type="text" id="ddd" class="form-control input-lg" placeholder="DDD" />
-        <input type="text" id="number" class="form-control input-lg" placeholder="Número" />
+        <input type="text" id="country_code" class="form-control input-lg" value="+55" maxlength="3" />
+        <input type="text" id="ddd" class="form-control input-lg" placeholder="DDD" maxlength="3" />
+        <input type="text" id="number" class="form-control input-lg" placeholder="Número" maxlength="9" />
         <a href="#" class="btn btn-primary btn-lg">Enviar Fax</a>
 
-        <div class="bubble bubble_ddd">This is a second tip</div>
+        <div class="bubble bubble_ddd">Este é o código do estado. Por ex: São Paulo (11)</div>
       </div>
     </div>
   </div>
