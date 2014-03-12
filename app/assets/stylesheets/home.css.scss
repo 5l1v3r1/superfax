@@ -141,5 +141,25 @@
   text-decoration: underline;
 }
 
+.price {
+  position: relative;
+  left: 72%;
+}
+
 .flag {
+}
+
+.instructions {
+  position: relative;
+  top: 25px;
+  width: 90%;
+  margin: auto;
+  text-align: left;
+
+}
+
+.instructions p {
+  font-size: 13px;
+  color: #888;
+  text-shadow: #fff;
 }
