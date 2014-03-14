@@ -11,4 +11,12 @@ $(function() {
     e.preventDefault();
     $(".number #upload").get(0).click();
   });
+
+  $(".number #upload").on("change", function() {
+    $(".form_fax").submit();
+  });
+
+  $(".form_fax").bind("ajax:success", function(){
+    alert("foi");
+  });
 });
