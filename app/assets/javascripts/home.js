@@ -13,10 +13,16 @@ $(function() {
   });
 
   $(".number #upload").on("change", function() {
+    $(".instructions").hide();
+    $(".status").show("slow");
     $(".form_fax").submit();
+    $(".input_form").attr("disabled", "disabled");
   });
 
-  $(".form_fax").bind("ajax:success", function(){
-    alert("foi");
+  $(".form_fax").bind("ajax:success", function() {
+    $(".status").hide();
+    $("#notice").show("slow");
+    $("#button_send").removeAttr("disabled");
+    $("#button_send").text("Efetuar Pagamento");
   });
 });

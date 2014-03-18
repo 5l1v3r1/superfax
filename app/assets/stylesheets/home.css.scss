@@ -146,6 +146,21 @@
   left: 72%;
 }
 
+.status {
+  display: none;
+}
+
+#loader {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+#status {
+  position: relative;
+  text-align: center;
+}
+
 .flag {
 }
 
@@ -162,4 +177,10 @@
   font-size: 13px;
   color: #888;
   text-shadow: #fff;
+}
+
+#notice {
+  position: relative;
+  display: none;
+  text-align: center;
 }

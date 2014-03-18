@@ -21,10 +21,10 @@
 
 
         <%= form_tag({controller: "home", action: "create"}, class: "form_fax", method: "post", multipart: true, remote: true) do %>
-          <input type="text" name="code" id="country_code" class="form-control input-lg" value="+55" maxlength="3" />
-          <input type="text" name="ddd" id="ddd" class="form-control input-lg" placeholder="DDD" maxlength="3" />
-          <input type="text" name="number" id="number" class="form-control input-lg" placeholder="Número" maxlength="9" />
-          <a href="#" id="button_send" class="btn btn-primary btn-lg">Enviar Fax</a>
+          <input type="text" name="code" id="country_code" class="form-control input-lg input_form" value="+55" maxlength="3" />
+          <input type="text" name="ddd" id="ddd" class="form-control input-lg input_form" placeholder="DDD" maxlength="3" />
+          <input type="text" name="number" id="number" class="form-control input-lg input_form" placeholder="Número" maxlength="9" />
+          <a href="#" id="button_send" class="btn btn-primary btn-lg input_form">Enviar Fax</a>
           <input type="file" id="upload" name="upload" style="position: absolute; top: -100px; width: 1px; height: 1px" />
         <% end %>
 
@@ -32,12 +32,18 @@
         <div class="price">
           Apenas R$ 2,00 / página
         </div>
+        <div id="loader" class="status">
+          <%= image_tag "ajax-loader.gif" %>
+        </div>
+        <div id="status" class="status">
+          <label>Realizando upload. Aguarde...</label>
+        </div>
+        <div id="notice">
+        </div>
       </div>
       <div class="instructions">
         <p>
           Você será cobrado apenas pelos envios completados. Os envios de fax que não forem recebidos com sucesso, não serão cobrados.
-        </p>
-        <p id="notice">
         </p>
       </div>
     </div>
