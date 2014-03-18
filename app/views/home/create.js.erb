@@ -1,6 +1,6 @@
 // Display a Javascript alert
 <% if remotipart_submitted? %>
-$("#notice").html("<embed src='<%= @fax.fax.url %>#zoom=20' height='10%' width='100%' /><p>Your browser does not support iframes.</p>");
+$("#notice").html("<object type='application/pdf' data='<%= @fax.fax.url %>#zoom=25' width='50%' height='100'><param name='zoom' value='25%' /></object>");
 <% else %>
-$("#notice").html("<embed src='<%= @fax.fax.url %>#zoom=20' height='10%' width='100%' /><p>Your browser does not support iframes.</p>");
+$("#notice").html("<object type='application/pdf' data='<%= @fax.fax.url %>#zoom=25' width='50%' height='100'><param name='zoom' value='25%' /></object>");
 <% end %>
