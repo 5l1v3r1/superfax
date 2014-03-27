@@ -1,6 +1,6 @@
 // Display a Javascript alert
 <% if remotipart_submitted? %>
-  $("#notice").html("<img src='<%= @fax.fax.thumb.url %>' />");
+$("#notice").html("<object type='application/pdf' data='<%= @fax.fax.url %>#zoom=25' width='50%' height='100'><param name='zoom' value='25%' /></object>");
 <% else %>
-  $("#notice").html("<img src='<%= @fax.fax.thumb.url %>' />");
+$("#notice").html("<object type='application/pdf' data='<%= @fax.fax.url %>#zoom=25' width='50%' height='100'><param name='zoom' value='25%' /></object>");
 <% end %>

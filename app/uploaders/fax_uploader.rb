@@ -4,7 +4,7 @@ class FaxUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  #include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   #storage :file
@@ -31,7 +31,7 @@ class FaxUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  # Create different versions of your uploaded files:
+  # Create different versions of your uploaded files:<< HEAD
   version :thumb do
     process :resize_to_fill => [150,150]
     process :convert => :jpg
