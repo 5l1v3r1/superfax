@@ -21,7 +21,7 @@ $(function() {
 
   $(".form_fax").bind("ajax:success", function() {
     $(".status").hide();
-    $("#notice").show("slow");
+    $(".number").hide();
     $("#button_send").removeAttr("disabled");
     $("#button_send").text("Efetuar Pagamento");
   });
