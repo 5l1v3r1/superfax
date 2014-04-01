@@ -9,6 +9,8 @@ class HomeController < ApplicationController
     @fax.fax = params[:upload]
     respond_to do |wants|
       if @fax.save!
+        io = open("#{@fax.fax.url}")
+        @pages = PDF::Reader.new(io).page_count
         flash[:notice] = "Fax salvo com sucesso"
         #wants.html { redirect_to "/" }
         wants.js

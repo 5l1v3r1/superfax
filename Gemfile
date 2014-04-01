@@ -42,6 +42,8 @@ gem 'mini_magick'
 
 gem 'fog', '~> 1.3.1'
 
+gem 'pdf-reader'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
