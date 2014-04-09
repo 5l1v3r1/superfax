@@ -44,6 +44,8 @@ gem 'fog', '~> 1.3.1'
 
 gem 'pdf-reader'
 
+gem 'phaxio'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

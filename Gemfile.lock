@@ -58,6 +58,12 @@ GEM
     formatador (0.2.4)
     hashery (2.1.1)
     hike (1.2.3)
+    httmultiparty (0.3.10)
+      httparty (>= 0.7.3)
+      multipart-post
+    httparty (0.12.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -74,6 +80,8 @@ GEM
       subexec (~> 0.2.1)
     minitest (4.7.5)
     multi_json (1.9.0)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
     mysql2 (0.3.15)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -86,6 +94,8 @@ GEM
       ruby-rc4
       ttfunk
     pg (0.17.1)
+    phaxio (0.4.0)
+      httmultiparty (~> 0.3.8)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -155,6 +165,7 @@ DEPENDENCIES
   mysql2
   pdf-reader
   pg
+  phaxio
   rails (= 4.0.2)
   remotipart
   sass-rails (~> 4.0.0)
