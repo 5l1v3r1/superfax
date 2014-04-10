@@ -46,7 +46,7 @@
   position: relative;
   width: 90%;
   margin: auto;
-  top: 10px;
+  top: 30px;
 }
 
 .number p {
@@ -141,6 +141,8 @@
   text-decoration: underline;
 }
 
+/* finish bubble tips */
+
 .price {
   position: relative;
   left: 72%;
@@ -166,7 +168,7 @@
 
 .instructions {
   position: relative;
-  top: 25px;
+  top: 65px;
   width: 90%;
   margin: auto;
   text-align: left;
@@ -198,4 +200,12 @@
   font-size: 13px;
   color: #888;
   text-shadow: #fff;
+}
+
+.alert-danger {
+  display: none;
+}
+
+#value {
+  margin-top: 20px;
 }

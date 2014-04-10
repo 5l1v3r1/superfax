@@ -1,16 +1,16 @@
 // Display a Javascript alert
 <% if remotipart_submitted? %>
-  $("#number_of_pages").text("Número de páginas: <%= @status %>");
+  $("#number_of_pages").text("Número de páginas: <%= @pages %>");
   var value = <%= @pages * 2 %>;
   $("#value").text("R$ " + value + ",00");
-  $("#pdf_image").html("<img src='<%= @fax.fax.thumb.url %>' />");
+  $("#pdf_image").html("<a href='<%= @fax.fax.url %>' target='_blank'><img src='<%= @fax.fax.thumb.url %>' /></a>");
   $(".main_panel").css("height", "500px");
   $(".show_fax_uploaded").show();
 <% else %>
-  $("#number_of_pages").text("Número de páginas: <%= @status %>");
+  $("#number_of_pages").text("Número de páginas: <%= @pages %>");
   var value = <%= @pages * 2 %>;
   $("#value").text("R$ " + value + ",00");
-  $("#pdf_image").html("<img src='<%= @fax.fax.thumb.url %>' />");
+  $("#pdf_image").html("<a href='<%= @fax.fax.url %>' target='_blank'><img src='<%= @fax.fax.thumb.url %>' /></a>");
   $(".main_panel").css("height", "500px");
   $(".show_fax_uploaded").show();
 <% end %>

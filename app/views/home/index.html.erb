@@ -7,9 +7,12 @@
         </p>
       </div>
       <div class="number">
+        <div class="alert alert-danger"></div>
+
         <p>
           Número do Destinatário
         </p>
+
         <div class="bubble bubble_country_code">
           <p><%= image_tag "brazil.png", :class => "flag" %><label>Brasil (+55)</label></p>
           <p><%= image_tag "united_states.png", :class => "flag" %><label>Estados Unidos (+1)</label></p>
@@ -49,7 +52,7 @@
         </p>
         <p>
           <a href="#" id="go_to_payment" class="btn btn-primary btn-lg">Efetuar Pagamento</a><br />
-          ou&nbsp;&nbsp;<a id="cancel" href="#">Cancelar</a>
+          ou&nbsp;&nbsp;<a id="cancel" href="/">Cancelar</a>
         </p>
         <p id="pdf_image"></p>
         <p id="charge_instructions">

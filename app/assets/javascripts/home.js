@@ -9,7 +9,12 @@ $(function() {
 
   $(".number #button_send").on("click", function(e) {
     e.preventDefault();
-    $(".number #upload").get(0).click();
+    $(".alert-danger").hide();
+    $(".main_panel").css("height", "350px");
+    $(".bubble").css("top", "100px");
+    verify_fields(function() {
+      $(".number #upload").get(0).click();
+    });
   });
 
   $(".number #upload").on("change", function() {
@@ -24,3 +29,26 @@ $(function() {
     $(".number").hide();
   });
 });
+
+function verify_fields(callback) {
+  var message = "";
+  if($("#country_code").val() == "") {
+    message = "Selecione o código do país para o qual deseja enviar.<br>";
+  }
+  if($("#ddd").val() == "") {
+    message += "Digite o ddd do número para o qual deseja enviar o fax.<br>";
+  }
+  if($("#number").val() == "") {
+    message += "O campo número não pode ficar em branco.";
+  }
+
+  if(message != "") {
+    $(".alert-danger").html(message);
+    $(".alert-danger").show();
+    $(".main_panel").css("height", "420px");
+    $(".bubble").css("top", "180px");
+  }
+  else {
+    callback();
+  }
+}
