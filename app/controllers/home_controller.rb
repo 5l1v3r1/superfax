@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class HomeController < ApplicationController
   def index
     @fax = Fax.new
@@ -5,7 +7,7 @@ class HomeController < ApplicationController
 
   def create
     @fax = Fax.new(params[:fax])
-    @fax.number = params[:code] + params[:ddd] + params[:number]
+    @fax.number = params[:code].gsub("+", "") + params[:ddd] + params[:number]
     @fax.fax = params[:upload]
     respond_to do |wants|
       if @fax.save!
@@ -19,12 +21,14 @@ class HomeController < ApplicationController
   end
 
   def send_fax
-    @fax = Fax.find(params[:fax])
+    @fax = Fax.find(params[:fax_id])
     respond_to do |wants|
       if @fax
-        @phaxio = Phaxio.send_fax(to: "553491456633", string_data: "teste")
+        io = open("#{@fax.fax.url}")
+        @phaxio = Phaxio.send_fax(to: "#{@fax.number}", string_data: "#{@fax.fax.url}", string_data_type: "url")
         puts "id: #{@phaxio['message']}"
         @status = Phaxio.get_fax_status(id: @phaxio["faxId"])
+        wants.js
       end
     end
   end

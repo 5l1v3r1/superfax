@@ -28,6 +28,18 @@ $(function() {
     $(".status").hide();
     $(".number").hide();
   });
+
+  $("#send_fax").on("click", function(e) {
+    e.preventDefault();
+    var fax_id = $(this).attr("fax_id");
+    $.ajax({
+      type: "POST",
+      url: "/send_fax",
+      data: {fax_id: fax_id},
+      success: fax_sended,
+      error: fax_sended_error
+    });
+  });
 });
 
 function verify_fields(callback) {
@@ -51,4 +63,12 @@ function verify_fields(callback) {
   else {
     callback();
   }
+}
+
+function fax_sended(data) {
+  alert(JSON.stringify(data));
+}
+
+function fax_sended_error(data) {
+  alert("erro\n " + JSON.stringify(data));
 }

@@ -56,6 +56,8 @@ GEM
       nokogiri (~> 1.5.0)
       ruby-hmac
     formatador (0.2.4)
+    haml (4.0.5)
+      tilt
     hashery (2.1.1)
     hike (1.2.3)
     httmultiparty (0.3.10)
@@ -87,6 +89,12 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.8.0)
     nokogiri (1.5.11)
+    pag_seguro (0.5.5)
+      activemodel
+      activesupport
+      haml (!= 3.1.5)
+      nokogiri
+      rest-client (~> 1.6.7)
     pdf-reader (1.3.3)
       Ascii85 (~> 1.0.0)
       afm (~> 0.2.0)
@@ -117,6 +125,8 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     remotipart (1.2.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     ruby-hmac (0.4.0)
     ruby-rc4 (0.1.5)
     sass (3.2.15)
@@ -163,6 +173,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   mysql2
+  pag_seguro
   pdf-reader
   pg
   phaxio

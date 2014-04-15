@@ -8,6 +8,8 @@ Superfax::Application.routes.draw do
 
   post 'create' => 'home#create'
 
+  post 'send_fax' => 'home#send_fax'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
