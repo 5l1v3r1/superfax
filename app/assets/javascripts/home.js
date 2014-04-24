@@ -40,6 +40,10 @@ $(function() {
       error: fax_sended_error
     });
   });
+  
+  $("#payment").on("click", function() {
+    $("#form_payment").submit();
+  });
 });
 
 function verify_fields(callback) {
