@@ -6,3 +6,4 @@ $("#pdf_image").html("<a href='<%= @fax.fax.url %>' target='_blank'><img src='<%
 $(".main_panel").css("height", "500px");
 $(".show_fax_uploaded").show();
 $("#send_fax").attr("fax_id", "<%= @fax.id %>");
+$("[name='fax_id']").val("<%= @fax.id %>");

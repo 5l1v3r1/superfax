@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312040208) do
+ActiveRecord::Schema.define(version: 20140422202608) do
 
   create_table "faxes", force: true do |t|
     t.string   "number"
     t.string   "fax"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invoices", force: true do |t|
+    t.integer  "fax_id"
+    t.float    "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

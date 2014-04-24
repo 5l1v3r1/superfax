@@ -38,6 +38,10 @@ $(function() {
       data: {fax_id: fax_id},
     });
   });
+  
+  $("#payment").on("click", function() {
+    $("#form_payment").submit();
+  });
 });
 
 function verify_fields(callback) {
