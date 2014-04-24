@@ -36,8 +36,6 @@ $(function() {
       type: "POST",
       url: "/send_fax",
       data: {fax_id: fax_id},
-      success: fax_sended,
-      error: fax_sended_error
     });
   });
 });
