@@ -1,1 +1,3 @@
+var response = JSON.parse(<%= @status.to_json %>);
+alert("resposta: " + response);
 $("#fax_response").html("<%= @status %>");
