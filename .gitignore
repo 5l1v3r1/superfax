@@ -21,4 +21,4 @@ public/uploads/
 *.swo
 
 # Ignore database.yml
-/config/database.yml
+# /config/database.yml
