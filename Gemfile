@@ -32,8 +32,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'pg'
-
 gem 'remotipart'
 
 gem 'carrierwave'

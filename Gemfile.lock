@@ -112,7 +112,6 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
-    pg (0.17.1)
     phaxio (0.4.0)
       httmultiparty (~> 0.3.8)
     polyglot (0.3.4)
@@ -197,7 +196,6 @@ DEPENDENCIES
   mysql2
   pag_seguro
   pdf-reader
-  pg
   phaxio
   rails (= 4.0.2)
   remotipart
