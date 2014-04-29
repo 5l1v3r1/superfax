@@ -38,7 +38,7 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
-gem 'fog', '~> 1.3.1'
+gem 'fog'
 
 gem 'pdf-reader'
 
@@ -56,7 +56,7 @@ gem 'pag_seguro'
 gem 'capistrano', group: :development
 gem 'capistrano-rails', group: :development
 gem 'capistrano-bundler', group: :development
-gem 'capistrano-rvm', group: :development
+gem 'capistrano-rvm', git: 'git@github.com:capistrano/rvm.git', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
