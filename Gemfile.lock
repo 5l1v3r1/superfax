@@ -204,6 +204,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm!
   carrierwave
+  execjs
   fog
   jbuilder (~> 1.2)
   jquery-rails

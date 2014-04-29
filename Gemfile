@@ -46,6 +46,8 @@ gem 'phaxio'
 
 gem 'pag_seguro'
 
+gem 'execjs'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
