@@ -43,7 +43,7 @@ class HomeController < ApplicationController
 
   def payment
     invoice = Invoice.find_by_fax_id(params[:fax_id])
-    payment = PagSeguro::Payment.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C", id: invoice.id)
+    payment = PagSeguro::Payment.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C", id: invoice.id, redirect_url: "http://superfax.com.br/payment_status")
     payment.items = [ PagSeguro::Item.new(id: 1, description: "Envio de fax", amount: 1.00, quantity: 1) ]
 
     redirect_to payment.checkout_payment_url
