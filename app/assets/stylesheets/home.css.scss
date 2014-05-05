@@ -210,6 +210,22 @@
   margin-top: 20px;
 }
 
-.send_fax {
-  display: none;
+.show_fax_information {
+  text-align: center;
+}
+
+.main_panel_payment_status {
+  height: 600px;
+}
+
+.show_fax_information .alert {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  display: inline-block;
+  text-align: center;
+  width: 70%;
+}
+
+.show_fax_information .send_fax {
+  margin-top: 20px;
 }

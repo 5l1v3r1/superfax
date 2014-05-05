@@ -11,10 +11,13 @@ class HomeController < ApplicationController
     @fax.fax = params[:upload]
     respond_to do |wants|
       if @fax.save!
-        invoice = Invoice.new(:fax_id => @fax.id)
-        invoice.save
         io = open("#{@fax.fax.url}")
         @pages = PDF::Reader.new(io).page_count
+        
+        amount = @pages * 2;
+        invoice = Invoice.new(:fax_id => @fax.id, :amount => amount)
+        invoice.save
+        
         flash[:notice] = "Fax salvo com sucesso"
         #wants.html { redirect_to "/" }
         wants.js
@@ -43,21 +46,23 @@ class HomeController < ApplicationController
 
   def payment
     invoice = Invoice.find_by_fax_id(params[:fax_id])
-    payment = PagSeguro::Payment.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C", id: invoice.id, redirect_url: "http://superfax.com.br/payment_status")
-    payment.items = [ PagSeguro::Item.new(id: 1, description: "Envio de fax", amount: 1.00, quantity: 1) ]
+    payment = PagSeguro::Payment.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C", id: invoice.id, redirect_url: "http://superfax-102926.sae1.nitrousbox.com:3000/payment_status?fax_id=#{params[:fax_id]}")
+    payment.items = [ PagSeguro::Item.new(id: 1, description: "Envio de fax", amount: invoice.amount, quantity: 1) ]
 
     redirect_to payment.checkout_payment_url
   end
 
   def payment_status
-    fax_id = params[:fax_id]
+    @fax = Fax.find(params[:fax_id])
+    @invoice = Invoice.find_by_fax_id(params[:fax_id])    
     transaction_id = params[:transaction_id]
     status = PagSeguro::Query.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C",transaction_id)
+    
     respond_to do |wants|
-      if status.approved?
-        @status = "deu certo"
+      if status.approved? && @fax
+        @status = true
       else
-        @status = "deu errado"
+        @status = false
       end
       wants.html
     end
