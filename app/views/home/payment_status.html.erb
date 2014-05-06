@@ -1,0 +1,58 @@
+<div class="content">
+  <div class="main_panel main_panel_payment_status">
+    <div class="form_panel">
+      <div class="top">
+        <p>
+          Envie seu fax pela internet em apenas alguns instantes
+        </p>
+      </div>
+      <div class="show_fax_information">
+        <% unless @status %>
+        <div class="alert alert-danger">Seu pagamento não foi identificado. Efetue o pagamento utilizando cartão de crédito. Ainda não trabalhamos com boletos...</div>
+
+          <p id="send_value">
+            Preço: <label id="value">R$ <%= @invoice.amount.to_s %></label>
+          </p>
+          <p id="number_of_pages">
+            Número de páginas: <%= (@invoice.amount / 2).to_int %>
+          </p>
+
+          <p class="form_pagamento">
+            <form id="form_payment" action="/payment" method="GET">
+              <input type="hidden" name="fax_id" value="<%= @fax.id %>" />
+              <a href="#" id="payment" fax_id="" class="btn btn-primary btn-lg">Efetuar Pagamento</a>
+            </form>
+            ou&nbsp;&nbsp;<a id="cancel" href="/">Cancelar</a>
+          </p>
+        <% else %>
+          <div class="alert alert-success">Pagamento efetuado com sucesso.</div>
+
+          <p class="send_fax">
+            <a href="#" id="send_fax" fax_id="<%= @fax.id %>" class="btn btn-primary btn-lg">Enviar fax</a><br />
+            ou&nbsp;&nbsp;<a id="cancel" href="/">Cancelar</a>
+          </p>
+        <% end %>
+        <p id="pdf_image">
+          <a href='<%= @fax.fax.url %>' target='_blank'><img src='<%= @fax.fax.thumb.url %>' /></a>
+        </p>
+        <p id="charge_instructions">
+          Clique na imagem para visualizar seu arquivo. Você somente será
+          cobrado se o fax for enviado com sucesso. Caso seu fax não seja enviado,
+          haverá o estorno do pagamento.
+        </p>
+        <p id="fax_response"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-36204274-4', 'superfax.com.br');
+  ga('send', 'pageview');
+
+</script>
