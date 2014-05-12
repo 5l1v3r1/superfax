@@ -6,6 +6,10 @@ $(function() {
   $(".number input").on("focusout", function() {
     $(".bubble").fadeOut();
   });
+  
+  $(".bubble_country_code label").on("click", function() {
+    $("#country_code").val($(this).attr("id"));
+  });
 
   $(".number #button_send").on("click", function(e) {
     e.preventDefault();
@@ -30,12 +34,15 @@ $(function() {
   });
 
   $("#send_fax").on("click", function(e) {
+    $(".send_fax").hide();
+    $(".status").show("slow");
+    
     e.preventDefault();
     var fax_id = $(this).attr("fax_id");
     $.ajax({
       type: "POST",
       url: "/send_fax",
-      data: {fax_id: fax_id},
+      data: {fax_id: fax_id}
     });
   });
   

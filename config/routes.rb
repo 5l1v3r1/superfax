@@ -13,6 +13,8 @@ Superfax::Application.routes.draw do
   get 'payment' => 'home#payment'
   
   get 'payment_status' => 'home#payment_status'
+  
+  post 'get_fax_status' => 'home#get_fax_status'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

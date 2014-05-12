@@ -26,6 +26,13 @@
           </p>
         <% else %>
           <div class="alert alert-success">Pagamento efetuado com sucesso.</div>
+      
+          <div id="loader" class="status" style="margin-top: 30px;">
+            <%= image_tag "ajax-loader.gif" %>
+          </div>
+          <div id="status" class="status" style="margin-bottom: 30px;">
+            <label>Conectando ao servidor. Aguarde...</label>
+          </div>
 
           <p class="send_fax">
             <a href="#" id="send_fax" fax_id="<%= @fax.id %>" class="btn btn-primary btn-lg">Enviar fax</a><br />

@@ -14,12 +14,12 @@
         </p>
 
         <div class="bubble bubble_country_code">
-          <p><%= image_tag "brazil.png", :class => "flag" %><label>Brasil (+55)</label></p>
-          <p><%= image_tag "united_states.png", :class => "flag" %><label>Estados Unidos (+1)</label></p>
-          <p><%= image_tag "argentina.png", :class => "flag" %><label>Argentina (+54)</label></p>
-          <p><%= image_tag "united_kingdom.png", :class => "flag" %><label>Reino Unido (+44)</label></p>
-          <p><%= image_tag "canada.png", :class => "flag" %><label>Canada (+1)</label></p>
-          <p><%= image_tag "germany.png", :class => "flag" %><label>Alemanha (+49)</label></p>
+          <p><%= image_tag "brazil.png", :class => "flag" %><label id="+55">Brasil (+55)</label></p>
+          <p><%= image_tag "united_states.png", :class => "flag" %><label id="+1">Estados Unidos (+1)</label></p>
+          <p><%= image_tag "argentina.png", :class => "flag" %><label id="+54">Argentina (+54)</label></p>
+          <p><%= image_tag "united_kingdom.png", :class => "flag" %><label id="+44">Reino Unido (+44)</label></p>
+          <p><%= image_tag "canada.png", :class => "flag" %><label id="+1">Canada (+1)</label></p>
+          <p><%= image_tag "germany.png", :class => "flag" %><label id="+49">Alemanha (+49)</label></p>
         </div>
 
 
@@ -28,7 +28,7 @@
           <input type="text" name="ddd" id="ddd" class="form-control input-lg input_form" placeholder="DDD" maxlength="3" />
           <input type="text" name="number" id="number" class="form-control input-lg input_form" placeholder="Número" maxlength="9" />
           <a href="#" id="button_send" class="btn btn-primary btn-lg input_form">Enviar Fax</a>
-          <input type="file" id="upload" name="upload" style="position: absolute; top: -100px; width: 1px; height: 1px" />
+          <input type="file" id="upload" name="upload" style="position: absolute; top: 1px; width: 1px; height: 1px; opacity: 0.1;" />
         <% end %>
 
         <div class="bubble bubble_ddd">Este é o código do estado. Por ex: São Paulo (11)</div>

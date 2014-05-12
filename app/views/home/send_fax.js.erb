@@ -1,3 +1,16 @@
-var response = JSON.parse(<%= @status.to_json %>);
-alert("resposta: " + response);
-$("#fax_response").html("<%= @status %>");
+$(".status label").text("Tentativa 1 de 3 de envio. Aguarde...");
+var response = '<%= @status.to_json %>';
+var json_response = JSON.parse(response.replace(/&quot;/g,'"'));
+
+$("#fax_response").html(JSON.stringify(json_response));
+
+var fax_id = '<%= @phaxio["faxId"] %>';
+if(json_response.success) {
+  setInterval(function() {
+    $.ajax({
+      type: "POST",
+      url: "/get_fax_status",
+      data: {fax_id: fax_id}
+    })
+  }, 1000);
+}

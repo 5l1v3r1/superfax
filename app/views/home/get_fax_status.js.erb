@@ -1,0 +1,4 @@
+var response = '<%= @status.to_json %>';
+var json_response = JSON.parse(response.replace(/&quot;/g,'"'));
+
+$("#fax_response").html(JSON.stringify(json_response));

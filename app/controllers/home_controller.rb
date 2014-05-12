@@ -41,13 +41,16 @@ class HomeController < ApplicationController
   def get_fax_status
     respond_to do |wants|
       @status = Phaxio.get_fax_status(id: params[:fax_id])
+      wants.js
     end
   end
 
   def payment
     invoice = Invoice.find_by_fax_id(params[:fax_id])
+    #payment = PagSeguro::Payment.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C", id: invoice.id,
+    #                                 redirect_url: "http://superfax.com.br/payment_status?fax_id=#{params[:fax_id]}")
     payment = PagSeguro::Payment.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C", id: invoice.id,
-                                     redirect_url: "http://superfax.com.br/payment_status?fax_id=#{params[:fax_id]}")
+                                     redirect_url: "http://superfax-102926.sae1.nitrousbox.com/payment_status?fax_id=#{params[:fax_id]}")
     payment.items = [ PagSeguro::Item.new(id: 1, description: "Envio de fax", amount: invoice.amount, quantity: 1) ]
 
     redirect_to payment.checkout_payment_url
@@ -61,9 +64,9 @@ class HomeController < ApplicationController
 
     respond_to do |wants|
       if status.approved? && @fax
-        @status = true
-      else
         @status = false
+      else
+        @status = true
       end
       wants.html
     end
