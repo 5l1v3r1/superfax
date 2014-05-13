@@ -64,9 +64,9 @@ class HomeController < ApplicationController
 
     respond_to do |wants|
       if status.approved? && @fax
-        @status = false
-      else
         @status = true
+      else
+        @status = false
       end
       wants.html
     end
