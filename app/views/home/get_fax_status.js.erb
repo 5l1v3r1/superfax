@@ -60,17 +60,25 @@ function get_status() {
 
 function failure() {
   $("#loader").hide();
-  $(".alert-danger").html("Não foi possível efetuar o envio. A chamada não foi completada.<br>");
-  $(".alert-danger").append("<a href='/'>Voltar a tela inicial</a>");
-  $(".alert-danger").css("margin-bottom", "20px");
-  $(".alert-danger").show();
+  $(".status label").hide();
+  $(".alert").hide();
+  $(".alert").html("Não foi possível efetuar o envio. A chamada não foi completada.<br>");
+  $(".alert").append("<a href='/'>Voltar a tela inicial</a>");
+  $(".alert").css("margin-bottom", "20px");
+  $(".alert").addClass("alert-danger");
+  $(".alert").show();
+
+  $("#send_fax").text("Enviar fax novamente");
+  $(".send_fax").show();
 }
 
 function success() {
   $(".status label").text("Fax enviado com sucesso para: " + number);
   $("#loader").hide();
-  $(".alert-success").html("Fax enviado com sucesso! Obrigado por utilizar nossos serviços.<br>");
-  $(".alert-success").append("<a href='/'>Enviar outro fax</a>");
-  $(".alert-success").css("margin-bottom", "20px");
-  $(".alert-success").show();
+  $(".alert").hide();
+  $(".alert").html("Fax enviado com sucesso! Obrigado por utilizar nossos serviços.<br>");
+  $(".alert").append("<a href='/'>Enviar outro fax</a>");
+  $(".alert").css("margin-bottom", "20px");
+  $(".alert").addClass("alert-success");
+  $(".alert").show();
 }

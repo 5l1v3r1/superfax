@@ -36,6 +36,7 @@ $(function() {
   $("#send_fax").on("click", function(e) {
     $(".send_fax").hide();
     $(".status").show("slow");
+    $(".status label").show("slow");
     
     e.preventDefault();
     var fax_id = $(this).attr("fax_id");
