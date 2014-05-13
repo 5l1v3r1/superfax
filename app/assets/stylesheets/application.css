@@ -17,6 +17,13 @@ body {
   background-color: #4496bb !important;
 }
 
+.contact {
+  position: fixed;
+  z-index: 999;
+  right: 0;
+  top: 0;
+}
+
 .logo {
   text-align: center;
   margin-top: 40px;
@@ -29,6 +36,14 @@ body {
   display: inline;
   text-shadow: 1px 3px 2px #555;
   font-family: 'Oranienbaum', serif;
+}
+
+.logo label {
+  margin-top: 2px;
+  margin-left: 5px;
+  color: white;
+  font-family: 'Oranienbaum', serif;
+  font-weight: normal;
 }
 
 .logo h2 {
