@@ -9,19 +9,29 @@ class HomeController < ApplicationController
     @fax = Fax.new(params[:fax])
     @fax.number = params[:code].gsub("+", "") + params[:ddd] + params[:number]
     @fax.fax = params[:upload]
+    extension = @fax.fax.file.extension.downcase
     respond_to do |wants|
-      if @fax.save!
-        io = open("#{@fax.fax.url}")
-        @pages = PDF::Reader.new(io).page_count
+      if %w{jpg png jpg gif bmp pdf}.include?(extension)
+        if @fax.save!
+          @pages = 1
+          if extension == "pdf"
+            io = open("#{@fax.fax.url}")
+            @pages = PDF::Reader.new(io).page_count
+          end
 
-        amount = @pages * 2;
-        invoice = Invoice.new(:fax_id => @fax.id, :amount => amount)
-        invoice.save
+          amount = @pages * 2;
+          invoice = Invoice.new(:fax_id => @fax.id, :amount => amount)
+          invoice.save
 
-        flash[:notice] = "Fax salvo com sucesso"
-        #wants.html { redirect_to "/" }
-        wants.js
+          #flash[:notice] = "Fax salvo com sucesso"
+        else
+          @fax = nil
+        end
+      else
+        @fax = nil
       end
+      #wants.html { redirect_to "/" }
+      wants.js
     end
   end
 
