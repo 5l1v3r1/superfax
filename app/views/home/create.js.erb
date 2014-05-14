@@ -1,7 +1,19 @@
-$("#number_of_pages").text("Número de páginas: <%= @pages %>");
-var value = <%= @pages * 2 %>;
-$("#value").text("R$ " + value + ",00");
-$("#pdf_image").html("<a href='<%= @fax.fax.url %>' target='_blank'><img src='<%= @fax.fax.thumb.url %>' /></a>");
-$(".main_panel").css("height", "500px");
-$(".show_fax_uploaded").show();
-$("[name='fax_id']").val("<%= @fax.id %>");
+<% if @fax %>
+  $("#number_of_pages").text("Número de páginas: <%= @pages %>");
+  var value = <%= @pages * 2 %>;
+  $("#value").text("R$ " + value + ",00");
+  $("#pdf_image").html("<a href='<%= @fax.fax.url %>' target='_blank'><img src='<%= @fax.fax.thumb.url %>' /></a>");
+  $(".main_panel").css("height", "500px");
+  $(".show_fax_uploaded").show();
+  $("[name='fax_id']").val("<%= @fax.id %>");
+  $(".number").hide();
+  $(".status").hide();
+<% else %>
+  $(".status").hide();
+  $(".input_form").removeAttr("disabled");
+  $(".instructions").show();
+  $(".alert-danger").html("Extensão de arquivo não suportada. Envie um arquivo de imagem ou um PDF.");
+  $(".alert-danger").show();
+  $(".main_panel").css("height", "420px");
+  $(".bubble").css("top", "180px");
+<% end %>

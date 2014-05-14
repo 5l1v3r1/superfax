@@ -21,16 +21,11 @@ $(function() {
     });
   });
 
-  $(".number #upload").on("change", function() {
+  $("body").delegate(".number #upload", "change", function() {
     $(".instructions").hide();
     $(".status").show("slow");
     $(".form_fax").submit();
     $(".input_form").attr("disabled", "disabled");
-  });
-
-  $(".form_fax").bind("ajax:success", function() {
-    $(".status").hide();
-    $(".number").hide();
   });
 
   $("#send_fax").on("click", function(e) {
