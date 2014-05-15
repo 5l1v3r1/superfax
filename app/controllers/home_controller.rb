@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     @fax.number = params[:code].gsub("+", "") + params[:ddd] + params[:number]
     @fax.fax = params[:upload]
     extension = @fax.fax.file.extension.downcase
-    
+
     if %w{jpg png jpeg bmp pdf}.include?(extension)
       if @fax.save!
         @pages = 1
@@ -22,7 +22,7 @@ class HomeController < ApplicationController
         amount = @pages * 2;
         invoice = Invoice.new(:fax_id => @fax.id, :amount => amount)
         invoice.save
-        
+
         #flash[:notice] = "Fax salvo com sucesso"
       else
         @fax = nil
@@ -30,7 +30,7 @@ class HomeController < ApplicationController
     else
       @fax = nil
     end
-    
+
     respond_to do |wants|
       wants.js
     end
@@ -58,10 +58,10 @@ class HomeController < ApplicationController
 
   def payment
     invoice = Invoice.find_by_fax_id(params[:fax_id])
-    #payment = PagSeguro::Payment.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C", id: invoice.id,
-    #                                 redirect_url: "http://superfax.com.br/payment_status?fax_id=#{params[:fax_id]}")
     payment = PagSeguro::Payment.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C", id: invoice.id,
-                                     redirect_url: "http://superfax-102926.sae1.nitrousbox.com/payment_status?fax_id=#{params[:fax_id]}")
+                                     redirect_url: "http://superfax.com.br/payment_status?fax_id=#{params[:fax_id]}")
+    #payment = PagSeguro::Payment.new("neliojrr@gmail.com", "ECAAC66FF2934DAB88D2AF6A041E868C", id: invoice.id,
+    #                                 redirect_url: "http://superfax-102926.sae1.nitrousbox.com/payment_status?fax_id=#{params[:fax_id]}")
     payment.items = [ PagSeguro::Item.new(id: 1, description: "Envio de fax", amount: invoice.amount, quantity: 1) ]
 
     redirect_to payment.checkout_payment_url
