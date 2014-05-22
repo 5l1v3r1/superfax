@@ -6,7 +6,7 @@ $(function() {
   $(".number input").on("focusout", function() {
     $(".bubble").fadeOut();
   });
-  
+
   $(".bubble_country_code label").on("click", function() {
     $("#country_code").val($(this).attr("id"));
   });
@@ -32,7 +32,7 @@ $(function() {
     $(".send_fax").hide();
     $(".status").show("slow");
     $(".status label").show("slow");
-    
+
     e.preventDefault();
     var fax_id = $(this).attr("fax_id");
     $.ajax({
@@ -41,7 +41,7 @@ $(function() {
       data: {fax_id: fax_id}
     });
   });
-  
+
   $("#payment").on("click", function() {
     $("#form_payment").submit();
   });
