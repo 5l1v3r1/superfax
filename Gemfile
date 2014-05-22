@@ -48,6 +48,8 @@ gem 'pag_seguro'
 
 gem 'therubyracer', :platforms => :ruby
 
+gem 'metamagic'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

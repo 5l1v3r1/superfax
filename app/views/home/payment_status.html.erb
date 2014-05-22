@@ -1,20 +1,26 @@
+<%
+  meta :title => "SuperFax - Envie seu fax pela internet",
+       :description => "Envie / Mande seu fax pela internet para vários países em apenas alguns minutos. Basta alguns cliques para enviar seu fax online.",
+       :keywords => %w(fax internet enviar mandar online superfax web receber como)
+%>
+
 <div class="content">
   <div class="main_panel main_panel_payment_status">
     <div class="form_panel">
       <div class="top">
-        <p>
+        <h2>
           Envie seu fax pela internet em apenas alguns instantes
-        </p>
+        </h2>
       </div>
       <div class="show_fax_information">
         <% unless @status %>
-        <div class="alert alert-danger">Seu pagamento não foi identificado. Efetue o pagamento utilizando cartão de crédito. Ainda não trabalhamos com boletos...</div>
+        <div class="alert alert-danger">Ops... Aconteceu algo inesperado com o seu pagamento. Tente novamente abaixo ou entre em contato.</div>
 
           <p id="send_value">
-            Preço: <label id="value">R$ <%= @invoice.amount.to_s %></label>
+            Preço: <label id="value">R$ <%= @invoice.amount.to_s %>0</label>
           </p>
           <p id="number_of_pages">
-            Número de páginas: <%= (@invoice.amount / 2).to_int %>
+            Número de páginas: <%= ((@invoice.amount - 0.4) / 2).to_int %>
           </p>
 
           <p class="form_pagamento">
@@ -26,7 +32,7 @@
           </p>
         <% else %>
           <div class="alert alert-success">Pagamento efetuado com sucesso.</div>
-      
+
           <div id="loader" class="status" style="margin-top: 30px;">
             <%= image_tag "ajax-loader.gif" %>
           </div>
@@ -52,14 +58,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-36204274-4', 'superfax.com.br');
-  ga('send', 'pageview');
-
-</script>

@@ -1,10 +1,18 @@
+<%
+  meta :title => "SuperFax - Envie seu fax pela internet",
+       :description => "Envie / Mande seu fax pela internet para vários países em apenas alguns minutos. Basta alguns cliques para enviar seu fax online.",
+       :keywords => %w(fax internet enviar mandar online superfax web receber como)
+%>
+
+
+
 <div class="content">
   <div class="main_panel">
     <div class="form_panel">
       <div class="top">
-        <p>
+        <h2>
           Envie seu fax pela internet em apenas alguns instantes
-        </p>
+        </h2>
       </div>
       <div class="number">
         <div class="alert alert-danger"></div>
@@ -17,9 +25,17 @@
           <p><%= image_tag "brazil.png", :class => "flag" %><label id="+55">Brasil (+55)</label></p>
           <p><%= image_tag "united_states.png", :class => "flag" %><label id="+1">Estados Unidos (+1)</label></p>
           <p><%= image_tag "argentina.png", :class => "flag" %><label id="+54">Argentina (+54)</label></p>
+          <p><%= image_tag "portugal.png", :class => "flag" %><label id="+351">Portugal (+351)</label></p>
           <p><%= image_tag "united_kingdom.png", :class => "flag" %><label id="+44">Reino Unido (+44)</label></p>
           <p><%= image_tag "canada.png", :class => "flag" %><label id="+1">Canada (+1)</label></p>
           <p><%= image_tag "germany.png", :class => "flag" %><label id="+49">Alemanha (+49)</label></p>
+          <p><%= image_tag "australia.png", :class => "flag" %><label id="+61">Austrália (+61)</label></p>
+          <p><%= image_tag "france.png", :class => "flag" %><label id="+33">França (+33)</label></p>
+          <p><%= image_tag "india.png", :class => "flag" %><label id="+91">Índia (+91)</label></p>
+          <p><%= image_tag "israel.png", :class => "flag" %><label id="+972">Israel (+972)</label></p>
+          <p><%= image_tag "japan.png", :class => "flag" %><label id="+81">Japão (+81)</label></p>
+          <p><%= image_tag "puerto_rico.png", :class => "flag" %><label id="+1">Porto Rico (+1)</label></p>
+          <p><%= image_tag "hong_kong.png", :class => "flag" %><label id="+852">Hong Kong (+852)</label></p>
         </div>
 
 
@@ -33,7 +49,7 @@
 
         <div class="bubble bubble_ddd">Este é o código do estado. Por ex: São Paulo (11)</div>
         <div class="price">
-          Apenas R$ 2,00 / página
+          Apenas R$ 0,40 + R$ 2,00 / página
         </div>
         <div id="loader" class="status">
           <%= image_tag "ajax-loader.gif" %>
@@ -74,13 +90,3 @@
     </div>
   </div>
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-36204274-4', 'superfax.com.br');
-  ga('send', 'pageview');
-
-</script>
