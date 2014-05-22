@@ -1,7 +1,7 @@
 <% if @fax %>
   $("#number_of_pages").text("Número de páginas: <%= @pages %>");
-  var value = <%= @pages * 2 %>;
-  $("#value").text("R$ " + value + ",00");
+  var value = <%= @invoice.amount %>;
+  $("#value").text("R$ " + value + "0");
   $("#pdf_image").html("<a href='<%= @fax.fax.url %>' target='_blank'><img src='<%= @fax.fax.thumb.url %>' /></a>");
   $(".main_panel").css("height", "500px");
   $(".show_fax_uploaded").show();

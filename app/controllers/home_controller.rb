@@ -2,7 +2,11 @@ require 'open-uri'
 
 class HomeController < ApplicationController
   def index
-    @fax = Fax.new
+    if params[:fax_id]
+      @fax = Fax.find(params[:fax_id])
+    else
+      @fax = Fax.new
+    end
   end
 
   def create
@@ -19,9 +23,9 @@ class HomeController < ApplicationController
           @pages = PDF::Reader.new(io).page_count
         end
 
-        amount = @pages * 2;
-        invoice = Invoice.new(:fax_id => @fax.id, :amount => amount)
-        invoice.save
+        amount = @pages * 2 + 0.4;
+        @invoice = Invoice.new(:fax_id => @fax.id, :amount => amount)
+        @invoice.save
 
         #flash[:notice] = "Fax salvo com sucesso"
       else
@@ -38,14 +42,26 @@ class HomeController < ApplicationController
 
   def send_fax
     @fax = Fax.find(params[:fax_id])
-    respond_to do |wants|
-      if @fax
-        io = open("#{@fax.fax.url}")
-        @phaxio = Phaxio.send_fax(to: "#{@fax.number}", string_data: "#{@fax.fax.url}", string_data_type: "url")
-        puts "id: #{@phaxio['message']}"
+    if @fax
+      @phaxio = Phaxio.send_fax(to: "#{@fax.number}", string_data: "#{@fax.fax.url}", string_data_type: "url")
+
+      puts "id: #{@phaxio['message']}"
+      @did_work = false
+
+      if @phaxio['message'] == "Fax queued for sending"
         @status = Phaxio.get_fax_status(id: @phaxio["faxId"])
-        wants.js
+        @did_work = true
+      else
+        if @phaxio['message'].starts_with?("Number is not formatted correctly")
+        else
+          @status = @phaxio['message']
+        end
       end
+    end
+
+    respond_to do |wants|
+      wants.js
+      wants.html
     end
   end
 

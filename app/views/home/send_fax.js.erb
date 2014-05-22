@@ -2,11 +2,16 @@ $(".status label").text("Iniciando processo. Aguarde...");
 var response = '<%= @status.to_json %>';
 var json_response = JSON.parse(response.replace(/&quot;/g,'"'));
 
-var fax_id = '<%= @phaxio["faxId"] %>';
-if(json_response.success) {
-  $.ajax({
-    type: "POST",
-    url: "/get_fax_status",
-    data: {fax_id: fax_id}
-  });
-}
+<% if @did_work %>
+  var fax_id = '<%= @phaxio["faxId"] %>';
+  if(json_response.success) {
+    $.ajax({
+      type: "POST",
+      url: "/get_fax_status",
+      data: {fax_id: fax_id}
+    });
+  }
+<% else %>
+    $(".status").hide();
+    $(".status label").hide();
+<% end %>
