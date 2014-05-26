@@ -1,6 +1,9 @@
 require 'open-uri'
 
 class HomeController < ApplicationController
+
+  before_action :protected_from_wrong_domain
+
   def index
     if params[:fax_id]
       @fax = Fax.find(params[:fax_id])
@@ -96,6 +99,14 @@ class HomeController < ApplicationController
         @status = false
       end
       wants.html
+    end
+  end
+
+  private
+
+  def protected_from_wrong_domain
+    unless request.original_url.include?("superfax.com.br")
+      render file: "public/404.html", status => 404
     end
   end
 end
