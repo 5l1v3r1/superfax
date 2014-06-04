@@ -14,7 +14,7 @@
       </div>
       <div class="show_fax_information">
         <% unless @status %>
-        <div class="alert alert-danger">Ops... Aconteceu algo inesperado com o seu pagamento. Tente novamente abaixo ou entre em contato.</div>
+        <div class="alert alert-danger">Ops... Aconteceu algo inesperado com o seu pagamento, ou ele ainda não foi confirmado. Copie o link desta página e tente mais tarde ou entre em contato.</div>
 
           <p id="send_value">
             Preço: <label id="value">R$ <%= @invoice.amount.to_s %>0</label>
@@ -32,6 +32,7 @@
           </p>
         <% else %>
           <div class="alert alert-success">Pagamento efetuado com sucesso.</div>
+          <div id="return_message" class="alert">Pagamento efetuado com sucesso.</div>
 
           <div id="loader" class="status" style="margin-top: 30px;">
             <%= image_tag "ajax-loader.gif" %>

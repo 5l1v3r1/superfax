@@ -50,14 +50,17 @@ class HomeController < ApplicationController
 
       puts "id: #{@phaxio['message']}"
       @did_work = false
+      @enter_number_again = false
 
       if @phaxio['message'] == "Fax queued for sending"
         @status = Phaxio.get_fax_status(id: @phaxio["faxId"])
         @did_work = true
       else
         if @phaxio['message'].starts_with?("Number is not formatted correctly")
+          @message = "Nosso servidor de fax não identificou o número digitado. Tente novamente"
+          @enter_number_again = true
         else
-          @status = @phaxio['message']
+          @message = @phaxio['message']
         end
       end
     end
@@ -105,7 +108,7 @@ class HomeController < ApplicationController
   private
 
   def protected_from_wrong_domain
-    unless request.original_url.include?("superfax.com.br")
+    unless request.original_url.include?("superfax.com.br") || request.original_url.include?("localhost")
       render file: "public/404.html", status => 404
     end
   end

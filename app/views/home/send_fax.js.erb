@@ -1,8 +1,8 @@
 $(".status label").text("Iniciando processo. Aguarde...");
-var response = '<%= @status.to_json %>';
-var json_response = JSON.parse(response.replace(/&quot;/g,'"'));
 
 <% if @did_work %>
+  var response = '<%= @status.to_json %>';
+  var json_response = JSON.parse(response.replace(/&quot;/g,'"'));
   var fax_id = '<%= @phaxio["faxId"] %>';
   if(json_response.success) {
     $.ajax({
@@ -14,4 +14,7 @@ var json_response = JSON.parse(response.replace(/&quot;/g,'"'));
 <% else %>
     $(".status").hide();
     $(".status label").hide();
+    $("#return_message").text("<%= @message %>");
+    $("#return_message").addClass("alert-danger");
+    $("#return_message").show();
 <% end %>
