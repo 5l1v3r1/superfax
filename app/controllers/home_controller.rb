@@ -63,7 +63,11 @@ class HomeController < ApplicationController
           if @phaxio['message'].starts_with?("The file at the url you provided is of an invalid type.")
             @message = "O arquivo que você está tentando enviar pode estar com problemas. Tente novamente!"
           else
-            @message = @phaxio['message']
+            if @phaxio['message'].starts_with?("Busy")
+              @message = "O número de destino encontra-se ocupado. Tente novamente."
+            else
+              @message = @phaxio['message']
+            end
           end
         end
       end
