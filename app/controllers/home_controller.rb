@@ -60,7 +60,11 @@ class HomeController < ApplicationController
           @message = "Nosso servidor de fax não identificou o número digitado. Tente novamente"
           @enter_number_again = true
         else
-          @message = @phaxio['message']
+          if @phaxio['message'].starts_with?("The file at the url you provided is of an invalid type.")
+            @message = "O arquivo que você está tentando enviar pode estar com problemas. Tente novamente!"
+          else
+            @message = @phaxio['message']
+          end
         end
       end
     end

@@ -14,6 +14,7 @@ $(".status label").text("Iniciando processo. Aguarde...");
 <% else %>
     $(".status").hide();
     $(".status label").hide();
+    $(".alert-success").hide();
     $("#return_message").text("<%= @message %>");
     $("#return_message").addClass("alert-danger");
     $("#return_message").show();
