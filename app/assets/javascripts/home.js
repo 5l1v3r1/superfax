@@ -77,3 +77,12 @@ function fax_sended(data) {
 function fax_sended_error(data) {
   alert("erro\n " + JSON.stringify(data));
 }
+
+function set_pagseguro_id(pagseguro_id) {
+  PagSeguroDirectPayment.setSessionId(pagseguro_id);
+}
+
+function get_sender_hash() {
+  var hash = PagSeguroDirectPayment.getSenderHash();
+  alert(hash);
+}

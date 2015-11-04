@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.1.5"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -64,3 +66,5 @@ gem 'capistrano-rvm', git: 'git@github.com:capistrano/rvm.git', group: :developm
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'pagseguro-checkout-transparente', git: 'git@github.com:neliojrr/pagseguro-checkout-transparente.git', group: :development

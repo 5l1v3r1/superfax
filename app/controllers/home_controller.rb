@@ -30,6 +30,10 @@ class HomeController < ApplicationController
         @invoice = Invoice.new(:fax_id => @fax.id, :amount => amount)
         @invoice.save
 
+        pagseguro_session = PagSeguro::Session.new
+        pagseguro_session_create = JSON.parse(pagseguro_session.create)
+        @pagseguro_id = pagseguro_session_create["session"]["id"]
+
         #flash[:notice] = "Fax salvo com sucesso"
       else
         @fax = nil

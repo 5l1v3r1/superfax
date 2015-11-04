@@ -8,6 +8,8 @@
   $("[name='fax_id']").val("<%= @fax.id %>");
   $(".number").hide();
   $(".status").hide();
+
+  set_pagseguro_id('<%= @pagseguro_id %>');
 <% else %>
   $(".status").hide();
   $(".input_form").removeAttr("disabled");
